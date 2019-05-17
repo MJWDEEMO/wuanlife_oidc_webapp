@@ -5,10 +5,12 @@
   "author": "loncocoon",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "node build/dev-server.js",
+    "build:prod": "cross-env NODE_ENV=production node build/build.js",
+    "build:sit": "cross-env NODE_ENV=sit node build/build.js",
+    "build:sit-preview": "cross-env NODE_ENV=sit npm_config_preview=true  npm_config_report=true node",
     "start": "npm run dev",
-    "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
     "@vue/cli-plugin-pwa": "^3.5.1",
@@ -22,6 +24,7 @@
     "postcss-px-to-viewport": "^1.1.0",
     "postcss-viewport-units": "^0.1.6",
     "postcss-write-svg": "^3.0.1",
+    "pushstate-server": "^3.1.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "sw-precache-webpack-plugin": "^0.11.5",
@@ -47,6 +50,7 @@
     "babel-preset-stage-2": "^6.22.0",
     "chalk": "^2.0.1",
     "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "cssnano-preset-advanced": "^4.0.7",
     "eslint": "^4.15.0",
